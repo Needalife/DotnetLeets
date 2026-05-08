@@ -1,14 +1,15 @@
-﻿using DotnetLeets.ValidParentheses;
+﻿using DotnetLeets.LongestCommonPrefix;
+using DotnetLeets.ValidParentheses;
 
 class Program
 {
     static void Main()
     {
-        string s = "[]))";
+        string [] s = ["iflower", "flow", "flight"];
 
-        var result = ValidParentheses.IsValid(s);
+        var result = LongestCommonPrefix.ReturnString(s);
 
-        Console.WriteLine($"Input: {s}");
+        Console.WriteLine($"Input: {string.Join(", ", s)}");
         Console.WriteLine($"Output: {result}");
     }
 }
