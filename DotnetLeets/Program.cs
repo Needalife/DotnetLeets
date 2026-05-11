@@ -1,5 +1,4 @@
-﻿using DotnetLeets.LongestCommonPrefix;
-using DotnetLeets.ValidParentheses;
+﻿using DotnetLeets.GroupAnagrams;
 
 class Program
 {
@@ -7,9 +6,14 @@ class Program
     {
         string [] s = ["eat", "tea", "tan", "ate", "nat", "bat"];
 
-        var result = LongestCommonPrefix.ReturnString(s);
+        var result = GroupAnagrams.ReturnGroupsOfString(s);
 
-        Console.WriteLine($"Input: {string.Join(", ", s)}");
-        Console.WriteLine($"Output: {result}");
+        Console.WriteLine($"Input: [{string.Join(", ", s)}]");
+
+        Console.WriteLine($"Groupings:");
+        foreach (var item in result)
+        {
+            Console.WriteLine($"[{string.Join(", ", item)}]");
+        }
     }
 }
