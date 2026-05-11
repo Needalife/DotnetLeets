@@ -5,7 +5,7 @@ class Program
 {
     static void Main()
     {
-        string [] s = ["iflower", "flow", "flight"];
+        string [] s = ["eat", "tea", "tan", "ate", "nat", "bat"];
 
         var result = LongestCommonPrefix.ReturnString(s);
 
