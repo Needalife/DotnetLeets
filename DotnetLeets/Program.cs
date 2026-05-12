@@ -1,15 +1,24 @@
 ﻿using DotnetLeets.Core;
-using DotnetLeets.Problems.Arrays;
+using System.Reflection;
 
 class Program
 {
     static void Main()
     {
-        List<ILeetProblem> problems =
-        [
-            new TwoSum()
-        ];
+        var problems = Assembly.GetExecutingAssembly()
+            .GetTypes()
+            .Where(t =>
+                typeof(ILeetProblem).IsAssignableFrom(t) &&
+                !t.IsInterface &&
+                !t.IsAbstract)
+            .Select(t => (ILeetProblem)Activator.CreateInstance(t)!)
+            .ToList();
 
+        consoleOut(problems);
+    }
+
+    private static void consoleOut(List<ILeetProblem> problems)
+    {
         Console.WriteLine("==== DOTNET LEETS ====\n");
 
         for (int i = 0; i < problems.Count; i++)
