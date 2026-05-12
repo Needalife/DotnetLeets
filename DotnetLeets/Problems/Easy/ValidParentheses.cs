@@ -1,6 +1,6 @@
 ﻿using DotnetLeets.Core;
 
-namespace DotnetLeets.Problems.Strings
+namespace DotnetLeets.Problems.Easy
 {
     internal class ValidParentheses : ILeetProblem
     {

@@ -1,6 +1,6 @@
 ﻿using DotnetLeets.Core;
 
-namespace DotnetLeets.Problems.Arrays
+namespace DotnetLeets.Problems.Medium
 {
     internal class GroupAnagrams: ILeetProblem
     {
