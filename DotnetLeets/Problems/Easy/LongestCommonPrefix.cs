@@ -5,6 +5,7 @@ namespace DotnetLeets.Problems.Easy
     internal class LongestCommonPrefix : ILeetProblem
     {
         public string Name => "Longest Common Prefix";
+        public List<string> Tag => ["String", "Array"];
 
         public void Run()
         {

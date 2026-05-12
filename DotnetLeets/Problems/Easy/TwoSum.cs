@@ -1,10 +1,11 @@
 ﻿using DotnetLeets.Core;
 
-namespace DotnetLeets.Problems.Arrays
+namespace DotnetLeets.Problems.Easy
 {
     internal class TwoSum: ILeetProblem
     {
         public string Name => "Two Sum";
+        public List<string> Tag => ["Array", "Hash Table"];
 
         public void Run()
         {
