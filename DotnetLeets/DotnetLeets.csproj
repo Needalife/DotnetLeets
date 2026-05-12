@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ValidParentheses\" />
+    <Folder Include="Problems\LinkedList\" />
+    <Folder Include="Problems\DynamicProgramming\" />
+    <Folder Include="Problems\Trees\" />
   </ItemGroup>
 
 </Project>
