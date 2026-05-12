@@ -14,10 +14,10 @@ class Program
             .Select(t => (ILeetProblem)Activator.CreateInstance(t)!)
             .ToList();
 
-        consoleOut(problems);
+        ConsoleOut(problems);
     }
 
-    private static void consoleOut(List<ILeetProblem> problems)
+    private static void ConsoleOut(List<ILeetProblem> problems)
     {
         Console.WriteLine("==== DOTNET LEETS ====\n");
 
