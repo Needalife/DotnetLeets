@@ -8,7 +8,7 @@ namespace DotnetLeets.Problems.Medium
         public List<string> Tag => ["Hash Table", "String"];
         public void Run()
         {
-            Console.WriteLine("=== Group Anagrams ===\n");
+            Console.WriteLine($"=== {Name} ===\n");
 
             var testCases = new Dictionary<string[], List<List<string>>>()
             {
