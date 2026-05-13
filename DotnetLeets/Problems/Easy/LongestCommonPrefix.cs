@@ -6,27 +6,23 @@ namespace DotnetLeets.Problems.Easy
     {
         public string Name => "Longest Common Prefix";
         public List<string> Tag => ["String", "Array"];
-
         public void Run()
         {
-            Console.WriteLine("=== Longest Common Prefix ===\n");
+            Console.WriteLine($"=== {Name} ===\n");
 
-            Test(["flower", "flow", "flight"]); // Basic case
-            Test(["dog", "racecar", "car"]); // No common prefix
-            Test(["interspace", "interstellar", "interstate"]); // Common prefix with different lengths
-            Test(["a", "a", "a"]); // All strings are the same
-            Test(["ab", "a"]); // One string is a prefix of the other
-            Test([]); // Empty input
-            Test(["single"]); // Single string input
-            Test(["prefix", "prefixes", "prefixed"]); // Common prefix is the entire first string
-        }
+            var testCases = new Dictionary<string[], string>()
+            {
+                { ["flower", "flow", "flight"], "fl" },
+                { ["dog", "racecar", "car"], "" },
+                { ["interspace", "interstellar", "interstate"], "inters" },
+                { ["a", "a", "a"], "a" },
+                { ["ab", "a"], "a" },
+                { [], "" },
+                { ["single"], "single" },
+                { ["prefix", "prefixes", "prefixed"], "prefix" }
+            };
 
-        public void Test(string[] input)
-        {
-            var result = Solve(input);
-            Console.WriteLine($"Input: [{string.Join(", ", input)}]");
-            Console.WriteLine($"\nOutput: {result}");
-            Console.WriteLine("\n-------------------\n");
+            TestHelper.TestAllCases(testCases, Solve);
         }
 
         private static string Solve(string[] s)
@@ -40,7 +36,6 @@ namespace DotnetLeets.Problems.Easy
             {
                 for (int j = 1; j < s.Length; j++)
                 {
-
                     if (i >= s[j].Length || first[i] != s[j][i])
                     {
                         return first.Substring(0, i);
@@ -48,7 +43,7 @@ namespace DotnetLeets.Problems.Easy
                 }
             }
 
-            return "No prefix!";
+            return "";
         }
     }
 }

@@ -6,7 +6,6 @@ namespace DotnetLeets.Problems.Easy
     {
         public string Name => "Roman to Integer";
         public List<string> Tag => ["Math", "String"];
-
         public void Run()
         {
             Console.WriteLine($"=== {Name} ===\n");
@@ -24,20 +23,7 @@ namespace DotnetLeets.Problems.Easy
                 { "MMCDXXV", 2425 }
             };
 
-            foreach ( var test in tests ) 
-            {
-                Test(test.Key, test.Value);
-            }
-        }
-
-        private static void Test(string s, int expected)
-        {
-            Console.WriteLine($"Input: {s}");
-            var output = Solve(s);
-            Console.WriteLine($"\nExpected: {expected}");
-            Console.WriteLine($"Output: {output}\n");
-            Console.WriteLine(output == expected ? "pass" : "fail");
-            Console.WriteLine("\n-------------------\n");
+            TestHelper.TestAllCases(tests, Solve);
         }
 
         private static int Solve(string s)

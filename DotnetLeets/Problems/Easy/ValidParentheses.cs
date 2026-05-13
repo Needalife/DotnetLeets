@@ -8,26 +8,24 @@ namespace DotnetLeets.Problems.Easy
         public List<string> Tag => ["String", "Stack"];
         public void Run()
         {
-            Console.WriteLine("=== Valid Parentheses ===\n");
-            Test("()"); // Basic case
-            Test("()[]{}"); // Multiple types of brackets
-            Test("(]"); // Mismatched brackets
-            Test("([)]"); // Incorrectly nested brackets
-            Test("{[]}"); // Nested brackets
-            Test(""); // Empty string
-            Test("("); // Single opening bracket
-            Test(")"); // Single closing bracket
-            Test("(((())))"); // Deeply nested brackets
-            Test("((())"); // Unmatched opening bracket
-            Test("(()))"); // Unmatched closing bracket
-        }
+            Console.WriteLine($"=== {Name} ===\n");
 
-        public void Test(string input)
-        {
-            var result = Solve(input);
-            Console.WriteLine($"Input: {input}");
-            Console.WriteLine($"\nOutput: {result}");
-            Console.WriteLine("\n-------------------\n");
+            var testCases = new Dictionary<string, bool>
+            {
+                { "()", true }, // Basic case
+                { "()[]{}", true }, // Multiple types of brackets
+                { "(]", false }, // Mismatched brackets
+                { "([)]", false }, // Incorrectly nested brackets
+                { "{[]}", true }, // Nested brackets
+                { "", true }, // Empty string
+                { "(", false }, // Single opening bracket
+                { ")", false }, // Single closing bracket
+                { "(((())))", true }, // Deeply nested brackets
+                { "((())", false }, // Unmatched opening bracket
+                { "(()))", false } // Unmatched closing bracket
+            };
+
+            TestHelper.TestAllCases(testCases, Solve);
         }
 
         private static bool Solve(string s)

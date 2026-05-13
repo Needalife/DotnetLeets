@@ -6,37 +6,22 @@ namespace DotnetLeets.Problems.Easy
     {
         public string Name => "Palindrome Number";
         public List<string> Tag => ["Math", "String"];
-
         public void Run()
         {
             Console.WriteLine("=== Palindrome Number ===\n");
 
-            var tests = new Dictionary<string, int>
+            var tests = new Dictionary<int, bool>
             {
-                { "Basic case", 121 },
-                { "Negative number", -121 },
-                { "Ends with zero", 10 },
-                { "Odd length palindrome", 12321 },
-                { "Even length palindrome", 123321 },
-                { "Single digit", 0 },
-                { "Palindrome with zeros in the middle", 1001 }
+                { 121, true },
+                { -121, false },
+                { 10, false },
+                { 12321, true },
+                { 123321, true },
+                { 0, true },
+                { 1001, true }
             };
 
-            foreach (var test in tests)
-            {
-                Console.WriteLine($"=== {test.Key} ===\n");
-                Test(test.Value);
-            }
-        }
-
-        private void Test(int num)
-        {
-            Console.WriteLine($"Input: {num}");
-
-            var result = Solve(num);
-            Console.WriteLine($"\nOutput: {result}");
-
-            Console.WriteLine("\n-------------------\n");
+            TestHelper.TestAllCases(tests, Solve);
         }
 
         private static bool Solve(int x)
