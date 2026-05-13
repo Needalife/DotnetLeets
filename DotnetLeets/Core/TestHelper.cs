@@ -21,7 +21,8 @@
             TInput1 input1,
             TInput2 input2,
             TOutput expected,
-            Func<TInput1, TInput2, TOutput> solver)
+            Func<TInput1, TInput2, TOutput> solver,
+            Func<TOutput, TOutput, bool>? comparer = null)
         {
             Console.WriteLine("Input:");
 
@@ -30,7 +31,9 @@
 
             var output = solver(input1, input2);
 
-            PrintResult(output, expected);
+            comparer ??= AreEqual;
+
+            PrintResult(output, expected, comparer);
         }
 
         public static void TestAllCases<TInput, TOutput>(
@@ -50,7 +53,8 @@
         
         public static void TestAllCases<TInput1, TInput2, TOutput>(
             List<((TInput1, TInput2) input, TOutput expected)> testCases,
-            Func<TInput1, TInput2, TOutput> solver)
+            Func<TInput1, TInput2, TOutput> solver,
+            Func<TOutput, TOutput, bool>? comparer = null)
         {
             foreach (var testCase in testCases)
             {
@@ -58,14 +62,15 @@
                     testCase.input.Item1,
                     testCase.input.Item2,
                     testCase.expected,
-                    solver);
+                    solver,
+                    comparer);
             }
         }
 
         private static void PrintResult<TOutput>(
             TOutput output,
             TOutput expected,
-            Func<TOutput, TOutput, bool> comparer = null)
+            Func<TOutput, TOutput, bool>? comparer = null)
         {
             Console.WriteLine($"\nExpected: {FormatValue(expected)}");
             Console.WriteLine($"Output: {FormatValue(output)}\n");
