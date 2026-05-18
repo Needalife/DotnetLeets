@@ -108,6 +108,19 @@
                 return str;
             }
 
+            if (value is LinkedListHelper.Node node)
+            {
+                var values = new List<int>();
+
+                while (node != null)
+                {
+                    values.Add(node.val);
+                    node = node.next;
+                }
+
+                return $"[{string.Join(", ", values)}]";
+            }
+
             if (value is System.Collections.IEnumerable enumerable)
             {
                 var items = enumerable
