@@ -1,4 +1,6 @@
-﻿namespace DotnetLeets.Core
+﻿using static DotnetLeets.Core.LinkedListHelper;
+
+namespace DotnetLeets.Core
 {
     internal static class TestHelper
     {
@@ -108,7 +110,7 @@
                 return str;
             }
 
-            if (value is LinkedListHelper.Node node)
+            if (value is Node node)
             {
                 var values = new List<int>();
 
