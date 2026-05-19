@@ -33,5 +33,19 @@ namespace DotnetLeets.Core
 
             return head;
         }
+
+        public static bool Compare(Node? a, Node? b)
+        {
+            while (a != null && b != null)
+            {
+                if (a.val != b.val)
+                    return false;
+
+                a = a.next;
+                b = b.next;
+            }
+
+            return a == null && b == null;
+        }
     }
 }
