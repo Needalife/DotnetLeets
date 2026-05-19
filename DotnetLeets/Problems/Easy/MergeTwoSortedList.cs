@@ -46,7 +46,7 @@ namespace DotnetLeets.Problems.Easy
             TestHelper.TestAllCases(
                 testCases,
                 Solve,
-                ComparedLinkedList
+                Compare
             );
         }
 
@@ -83,18 +83,5 @@ namespace DotnetLeets.Problems.Easy
             return dummy.next;
         }
 
-        public static bool ComparedLinkedList(Node? a, Node? b)
-        {
-            while (a != null && b != null)
-            {
-                if (a.val != b.val)
-                {
-                    return false;
-                }
-                a = a.next;
-                b = b.next;
-            }
-            return a == null && b == null;
-        }
     }
 }
