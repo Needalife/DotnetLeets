@@ -1,7 +1,7 @@
 ﻿using DotnetLeets.Core;
 using static DotnetLeets.Core.LinkedListHelper;
 
-namespace DotnetLeets.Problems.Easy
+namespace DotnetLeets.Problems.Medium
 {
     internal class AddTwoNumbers : ILeetProblem
     {
