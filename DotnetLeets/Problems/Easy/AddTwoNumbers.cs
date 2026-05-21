@@ -36,7 +36,7 @@ namespace DotnetLeets.Problems.Easy
 
             TestHelper.TestAllCases(
                 testCases,
-                Solve,
+                SolveV2,
                 Compare
             );
         }
@@ -109,3 +109,31 @@ namespace DotnetLeets.Problems.Easy
             return dummy;
         }
 
+        private static Node SolveV2(Node l1, Node l2)
+        {
+            var head = new Node(0);
+            var current = head;
+            int carry = 0;
+            int sum = 0;
+
+            while (l1 != null || l2 != null || carry != 0)
+            {
+                sum = (l1 != null ? l1.val : 0) + (l2 != null ? l2.val : 0) + carry;
+                carry = sum >= 10 ? 1 : 0;
+
+                current.val = carry > 0 ? sum - 10 : sum;
+
+                l1 = l1 != null ? l1.next : null;
+                l2 = l2 != null ? l2.next : null;
+
+                if (l1 != null || l2 != null || carry != 0)
+                {
+                    current.next = new Node();
+                    current = current.next;
+                }
+            }
+
+            return head;    
+        }
+    }
+}
