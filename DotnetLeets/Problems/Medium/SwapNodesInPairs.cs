@@ -43,5 +43,27 @@ namespace DotnetLeets.Problems.Medium
 
             return dummy.next;
         }
+        /*
+         * dummy -> 1 -> 2 -> 3 -> 4
+         *   p      c    n
+         * 
+         * p.next = n 
+         * dummy -> 2 -> 3 -> 4
+         * 
+         * c.next = n.next
+         * 1 -> 3 -> 4
+         * 
+         * n.next = c
+         * dummy -> 2 -> 1 -> 3 -> 4
+         *   p      n    c
+         *   
+         * p = c
+         * dummy -> 2 -> 1 -> 3 -> 4
+         *              c,p
+         *               
+         * c = c.next
+         * dummy -> 2 -> 1 -> 3 -> 4
+         *               p    c
+         */
     }
 }
