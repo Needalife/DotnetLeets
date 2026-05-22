@@ -47,26 +47,5 @@ namespace DotnetLeets.Problems.Easy
             return count;
         }
 
-        private static int[] RemoveDuplicates(int[] nums)
-        {
-            if (nums.Length == 0) return nums;
-
-            var count = 1;
-            var current = nums[0];
-            var previous = current;
-
-            for (int i = 1; i < nums.Length; i++)
-            {
-                current = nums[i];
-                previous = nums[i - 1];
-
-                if (current != previous)
-                {
-                    nums[count] = current;
-                    count++;
-                }
-            }
-            return nums;
-        }
     }
 }
