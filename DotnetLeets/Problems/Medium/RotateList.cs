@@ -1,6 +1,5 @@
 ﻿using DotnetLeets.Core;
 using static DotnetLeets.Core.LinkedListHelper;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace DotnetLeets.Problems.Medium
 {
