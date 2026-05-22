@@ -3,7 +3,7 @@ using static DotnetLeets.Core.LinkedListHelper;
 
 namespace DotnetLeets.Problems.Easy
 {
-    internal class RemoveDupplicatesFromSortedList : ILeetProblem
+    internal class RemoveDuplicatesFromSortedList : ILeetProblem
     {
         public string Name => "Remove Duplicates from Sorted List";
         public List<string> Tags => ["Linked List"];
