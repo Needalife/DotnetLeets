@@ -5,7 +5,7 @@ namespace DotnetLeets.Problems.Easy
     internal class ValidParentheses : ILeetProblem
     {
         public string Name => "Valid Parentheses";
-        public List<string> Tag => ["String", "Stack"];
+        public List<string> Tags => ["String", "Stack"];
         public void Run()
         {
             Console.WriteLine($"=== {Name} ===\n");

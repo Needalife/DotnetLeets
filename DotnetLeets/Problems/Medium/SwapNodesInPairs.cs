@@ -7,7 +7,7 @@ namespace DotnetLeets.Problems.Medium
     internal class SwapNodesInPairs : ILeetProblem
     {
         public string Name => "Swap Nodes in Pairs";
-        public List<string> Tag => ["Linked List", "Recursion"];
+        public List<string> Tags => ["Linked List", "Recursion"];
         public void Run()
         {
             Console.WriteLine($"=== {Name} ===\n");

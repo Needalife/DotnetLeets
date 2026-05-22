@@ -5,7 +5,7 @@ namespace DotnetLeets.Problems.Easy
     internal class RomanToInteger: ILeetProblem
     {
         public string Name => "Roman to Integer";
-        public List<string> Tag => ["Math", "String"];
+        public List<string> Tags => ["Math", "String"];
         public void Run()
         {
             Console.WriteLine($"=== {Name} ===\n");

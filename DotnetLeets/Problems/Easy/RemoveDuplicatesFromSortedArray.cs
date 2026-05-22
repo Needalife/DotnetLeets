@@ -6,7 +6,7 @@ namespace DotnetLeets.Problems.Easy
     internal class RemoveDuplicatesFromSortedArray : ILeetProblem
     {
         public string Name => "Remove Duplicates from Sorted Array";
-        public List<string> Tag => ["Array", "Two Pointers"];
+        public List<string> Tags => ["Array", "Two Pointers"];
         public void Run()
         {
             Console.WriteLine($"=== {Name} ===\n");

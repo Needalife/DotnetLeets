@@ -5,7 +5,7 @@ namespace DotnetLeets.Problems.Easy
     internal class TwoSum: ILeetProblem
     {
         public string Name => "Two Sum";
-        public List<string> Tag => ["Array", "Hash Table"];
+        public List<string> Tags => ["Array", "Hash Table"];
         public void Run()
         {
             Console.WriteLine($"=== {Name} ===\n");

@@ -3,7 +3,7 @@
     internal interface ILeetProblem
     {
         string Name { get; }
-        List<string> Tag { get; }
+        List<string> Tags { get; }
         void Run();
     }
 }

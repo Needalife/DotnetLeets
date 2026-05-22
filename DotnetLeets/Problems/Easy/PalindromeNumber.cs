@@ -5,7 +5,7 @@ namespace DotnetLeets.Problems.Easy
     internal class PalindromeNumber : ILeetProblem
     {
         public string Name => "Palindrome Number";
-        public List<string> Tag => ["Math", "String"];
+        public List<string> Tags => ["Math", "String"];
         public void Run()
         {
             Console.WriteLine("=== Palindrome Number ===\n");

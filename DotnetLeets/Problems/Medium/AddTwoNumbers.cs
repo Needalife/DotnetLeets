@@ -6,7 +6,7 @@ namespace DotnetLeets.Problems.Medium
     internal class AddTwoNumbers : ILeetProblem
     {
         public string Name => "Add Two Numbers";
-        public List<string> Tag => ["Linked List", "Math"];
+        public List<string> Tags => ["Linked List", "Math"];
         public void Run() { 
             Console.WriteLine($"=== {Name} ===\n");
 

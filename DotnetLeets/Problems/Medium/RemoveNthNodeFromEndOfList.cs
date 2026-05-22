@@ -6,7 +6,7 @@ namespace DotnetLeets.Problems.Medium
     internal class RemoveNthNodeFromEndOfList : ILeetProblem
     {
         public string Name => "Remove Nth Node From End of List";
-        public List<string> Tag => ["Linked List"];
+        public List<string> Tags => ["Linked List"];
         public void Run() {
             Console.WriteLine($"=== {Name} ===\n");
 

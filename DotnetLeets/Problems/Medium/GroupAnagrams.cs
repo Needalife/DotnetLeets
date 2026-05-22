@@ -5,7 +5,7 @@ namespace DotnetLeets.Problems.Medium
     internal class GroupAnagrams: ILeetProblem
     {
         public string Name => "Group Anagrams";
-        public List<string> Tag => ["Hash Table", "String"];
+        public List<string> Tags => ["Hash Table", "String"];
         public void Run()
         {
             Console.WriteLine($"=== {Name} ===\n");

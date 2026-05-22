@@ -6,7 +6,7 @@ namespace DotnetLeets.Problems.Easy
     internal class MergeTwoSortedList : ILeetProblem
     {
         public string Name => "Merge Two Sorted List";
-        public List<string> Tag => ["Linked List", "Recursion"];
+        public List<string> Tags => ["Linked List", "Recursion"];
         public void Run()
         {
             Console.WriteLine($"=== {Name} ===\n");
