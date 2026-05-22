@@ -1,4 +1,5 @@
-﻿using static DotnetLeets.Core.LinkedListHelper;
+﻿using System.Collections;
+using static DotnetLeets.Core.LinkedListHelper;
 
 namespace DotnetLeets.Core
 {
@@ -123,7 +124,7 @@ namespace DotnetLeets.Core
                 return $"[{string.Join(", ", values)}]";
             }
 
-            if (value is System.Collections.IEnumerable enumerable)
+            if (value is IEnumerable enumerable)
             {
                 var items = enumerable
                     .Cast<object>()
