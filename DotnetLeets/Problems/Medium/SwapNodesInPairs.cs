@@ -1,0 +1,47 @@
+﻿using DotnetLeets.Core;
+using System.Net.NetworkInformation;
+using static DotnetLeets.Core.LinkedListHelper;
+
+namespace DotnetLeets.Problems.Medium
+{
+    internal class SwapNodesInPairs : ILeetProblem
+    {
+        public string Name => "Swap Nodes in Pairs";
+        public List<string> Tag => ["Linked List", "Recursion"];
+        public void Run()
+        {
+            Console.WriteLine($"=== {Name} ===\n");
+            var testCases = new Dictionary<Node, Node>
+            {
+                {Create(1,2,3,4), Create(2,1,4,3)},
+                {Create(1,2,3,4,5,6), Create(2,1,4,3,6,5)},
+                {Create(0), Create(0)},
+                {Create(1), Create(1)},
+                {Create(1,2,3), Create(2,1,3)}
+            };
+
+            TestHelper.TestAllCases(testCases, Solve, Compare);
+        }
+
+        private Node Solve(Node? head)
+        {
+            var dummy = new Node { next = head };
+            var prev = dummy;
+            var current = head;
+
+            while (current != null && current.next != null)
+            {
+                var next = current.next;
+      
+                prev.next = next;
+                current.next = next.next;
+                next.next = current;
+
+                prev = current;
+                current = current.next;
+            }
+
+            return dummy.next;
+        }
+    }
+}
