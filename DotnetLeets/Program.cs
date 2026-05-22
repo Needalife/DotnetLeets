@@ -19,33 +19,51 @@ class Program
 
     private static void ConsoleOut(List<ILeetProblem> problems)
     {
-        Console.WriteLine("==== DOTNET LEETS ====\n");
-
-        for (int i = 0; i < problems.Count; i++)
+        while (true)
         {
-            Console.WriteLine($"{i + 1}. {problems[i].Name}");
+            Console.Clear();
+
+            Console.Write("Search (name/tag): ");
+            string search =
+                Console.ReadLine()?.Trim().ToLower()
+                ?? "";
+
+            var filtered = problems
+                .Where(p =>
+                    p.Name.ToLower().Contains(search)
+                    ||
+                    p.Tags.Any(t =>
+                        t.Contains(
+                            search,
+                            StringComparison.OrdinalIgnoreCase)))
+                .ToList();
+
+            if (!filtered.Any())
+            {
+                Console.WriteLine("\nNo results.");
+                Console.ReadKey();
+                continue;
+            }
+
+            Console.WriteLine();
+
+            for (int i = 0; i < filtered.Count; i++)
+            {
+                Console.WriteLine(
+                    $"{i + 1}. {filtered[i].Name} " +
+                    $"[{string.Join(", ", filtered[i].Tags)}]");
+            }
+
+            Console.Write("\nSelect: ");
+
+            if (int.TryParse(Console.ReadLine(), out int choice)
+                && choice > 0
+                && choice <= filtered.Count)
+            {
+                Console.Clear();
+                filtered[choice - 1].Run();
+                break;
+            }
         }
-
-        Console.Write("\nSelect problem: ");
-
-        string? input = Console.ReadLine();
-
-        bool valid = int.TryParse(input, out int choice);
-
-        if (!valid)
-        {
-            Console.WriteLine("Invalid input.");
-            return;
-        }
-
-        if (choice < 1 || choice > problems.Count)
-        {
-            Console.WriteLine("Problem not found.");
-            return;
-        }
-
-        Console.Clear();
-
-        problems[choice - 1].Run();
     }
 }
