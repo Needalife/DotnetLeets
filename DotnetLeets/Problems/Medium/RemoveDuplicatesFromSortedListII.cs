@@ -14,6 +14,9 @@ namespace DotnetLeets.Problems.Medium
             {
                 {Create(1,2,3,3,4,4,5), Create(1,2,5)},
                 {Create(1,1,1,2,3), Create(2,3)},
+                {Create(1,2,3,3,4,4,5,5,6), Create(1,2,6)},
+                {Create(1,2,3,3,4,4), Create(1,2)},
+                {Create(0,0,3), Create(3)}
             };
             TestHelper.TestAllCases(testCases, Solve, Compare);
         }
@@ -22,23 +25,30 @@ namespace DotnetLeets.Problems.Medium
         {
             if (head == null) return null;
 
-            var dummy = head;
-            var curr = dummy;
-            var val = curr.val;
+            var dummy = new Node { next = head };
+            var curr = dummy.next;
+            var prev = dummy;
 
-            while (curr != null)
+            while (curr?.next != null)
             {
-                if (curr.val == val)
+                if (curr.val == curr.next.val)
                 {
-                    curr.next = curr.next?.next;
-                } else
-                {
-                    val = curr.val;
+                    while (curr.next != null && curr.val == curr.next.val)
+                    {
+                        curr = curr.next;
+                    }
+
+                    prev.next = curr.next;
                 }
+
                 curr = curr.next;
+
+                if (prev.next?.val != prev.next?.next?.val) {
+                    prev = prev.next;
+                }
             }
 
-            return dummy;
+            return dummy.next;
         }
     }
 }
